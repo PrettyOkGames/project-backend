@@ -5,8 +5,8 @@ const {
   registerUser,
   loginUser,
 } = require("../controllers/userController");
+const { authMiddleware, adminOnly, signToken} = require("../middlewares/auth");
 
-const { authMiddleware,  adminOnly, signToken} = require("../middlewares/auth");
 const passport = require('passport');
 
 const userRouter = express.Router();

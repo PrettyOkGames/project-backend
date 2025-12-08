@@ -19,9 +19,6 @@ function getUserById(req, res) {
   res.send(`Data for user: ${req.params.id}`);
 }
 
-/**
- * Register New User
- */
 async function registerUser(req, res) {
   try {
     // check if user exists
@@ -41,11 +38,6 @@ async function registerUser(req, res) {
   }
 }
 
-
-/**
- * 
- * Login User
- */
 async function loginUser(req, res) {
   try {
     const { email, password } = req.body;
