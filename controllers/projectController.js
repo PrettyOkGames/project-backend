@@ -55,11 +55,43 @@ async function createProject(req, res) {
 }
 
 async function updateProject(req, res) {
-  //update a Project's name and description
+  //update a Project
+  try {
+    const { projectId } = req.params;
+    const project = await Project.findById(projectId);
+
+    if (!project) {
+      return res
+        .status(404)
+        .json({ message: `Project with id: ${projectId} not found!` });
+    }
+    await Project.findByIdAndUpdate(projectId, req.body, {new: true})
+    await res.json(req.body)
+  }
+  catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'There was an error updating that project' });
+  }
 }
 
 async function deleteProject(req, res) {
   //delete a project, and maybe all of its tasks
+  try {
+    const { projectId } = req.params;
+    const project = await Project.findById(projectId);
+
+    if (!project) {
+      return res
+        .status(404)
+        .json({ message: `Project with id: ${projectId} not found!` });
+    }
+    await Project.findByIdAndDelete(projectId)
+    await res.send("Project deleted successfully")
+  }
+  catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'There was an error deleting that project' });
+  }
 }
 
 module.exports = {
