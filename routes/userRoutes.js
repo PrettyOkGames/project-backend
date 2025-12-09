@@ -1,23 +1,23 @@
-const express = require("express");
+const express = require("express")
 const {
   getAllUsers,
   getUserById,
   registerUser,
   loginUser,
 } = require("../controllers/userController");
-const { authMiddleware, adminOnly, signToken} = require("../middlewares/auth");
+const { authMiddleware, adminOnly, signToken} = require("../middlewares/auth")
 
-const passport = require('passport');
+const passport = require('passport')
 
-const userRouter = express.Router();
+const userRouter = express.Router()
 
-userRouter.get("/", authMiddleware, adminOnly, getAllUsers);
+userRouter.get("/", authMiddleware, adminOnly, getAllUsers)
 
-userRouter.get("/:id", getUserById);
+userRouter.get("/:id", getUserById)
 
-userRouter.post("/register", registerUser);
+userRouter.post("/register", registerUser)
 
-userRouter.post("/login", loginUser);
+userRouter.post("/login", loginUser)
 
 // Route to start the OAuth flow
 // When a user visits this URL, they will be redirected to GitHub to log in.
@@ -42,4 +42,4 @@ userRouter.post("/login", loginUser);
 //   }
 // );
 
-module.exports = userRouter;
+module.exports = userRouter
