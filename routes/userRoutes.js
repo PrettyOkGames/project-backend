@@ -1,7 +1,7 @@
 const express = require("express")
 const {
   getAllUsers,
-  getUserById,
+  getUserById,//
   registerUser,
   loginUser,
 } = require("../controllers/userController");
