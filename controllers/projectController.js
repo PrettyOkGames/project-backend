@@ -44,7 +44,6 @@ async function createProject(req, res) {
   try {
     const newProject = await Project.create({
       ...req.body,
-      user: req.user._id,
     })
 
     res.status(201).json(newProject)
