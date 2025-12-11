@@ -29,7 +29,7 @@ app.use('/api/projects/:projectId/tasks', require('./routes/projectRoutes'));
 
 // Use this route to setup the API documentation
 app.get('/', (req, res) => {
-    //res.send('Welcome to Pro Tasker >:)');
+    res.send('Welcome to Pro Tasker >:)');
 });
 
 app.listen(PORT, () => {
